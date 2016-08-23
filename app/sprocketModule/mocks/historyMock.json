@@ -1,0 +1,25 @@
+{
+  "result": [
+    {
+      "date": "3/17",
+      "action": "BUY",
+      "unitPrice": 13.66,
+      "count": 3,
+      "Total": 40.98
+    },
+    {
+      "date": "3/16",
+      "action": "SELL",
+      "unitPrice": 20.33,
+      "count": 7,
+      "Total": 142.31
+    },
+    {
+      "date": "3/15",
+      "action": "BUY",
+      "unitPrice": 5.20,
+      "count": 10,
+      "Total": 52.00
+    }
+  ]
+}

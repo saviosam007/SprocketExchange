@@ -1,0 +1,35 @@
+<form>
+    <div class="col-md-12">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <h1 style="font-weight: bold">Sprocket Exchange</h1>
+            <h2 style="font-weight: bold">Your Holdings</h2><br>
+            <h4>Available Cash:{{placeOrderCtrl.sprockets}}</h4>
+            <h4>Sprockets:{{placeOrderCtrl.availableCash}}</h4>
+            <h2 style="font-weight: bold">Place Order</h2><br>
+            <h4>Current Price:{{placeOrderCtrl.priceDetail.currentPrice}} (as of <span class="margin-left-100">)</span><ds-widget-clock theme="dark" show-digital="true"  show-secs="true" digital-format="'hh:mm:ss a'"></ds-widget-clock></h4>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+        <div class="form-custom">
+    <div class="form-group col-md-12 margin-top-10">
+        <label class="col-md-4" for="action">Action</label>
+        <select  ng-options="v.value for v in action" ng-model="placeOrderCtrl.action" class="col-md-4" id="action">
+            <option ng-if="false" value=""></option>
+</select>
+    </div>
+    <div class="form-group col-md-12">
+        <label class="col-md-4" for="amt">Amount</label>
+        <input type="text" ng-model="placeOrderCtrl.amount" ng-blur="placeOrderCtrl.calculate()" class="col-md-4" id="amt" numbers-only>
+    </div>
+    <div class="form-group col-md-12">
+        <label class="col-md-4">Total</label>
+        <label class="col-md-4">{{placeOrderCtrl.total}}</label>
+    </div>
+    <div class="col-md-8 pull-right margin-bottom-10">
+    <button type="button" class="btn btn-default btn-xs" ng-click="placeOrderCtrl.submitOrder()">Submit</button>
+    </div>
+    </div>
+    </div>
+</form>

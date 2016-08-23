@@ -1,0 +1,20 @@
+<table class="table history-table" style="width: 500px">
+    <thead class="history-header">
+    <tr>
+        <th>Date</th>
+        <th>Action</th>
+        <th>Unit Price</th>
+        <th>Count</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="detail in historyCtrl.orderHistory">
+        <td>{{detail.date}}</td>
+        <td>{{detail.action}}</td>
+        <td>{{detail.unitPrice}}</td>
+        <td>{{detail.count}}</td>
+        <td>{{detail.Total}}</td>
+    </tr>
+    </tbody>
+</table>
