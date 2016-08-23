@@ -1,10 +1,16 @@
 /**
  * Created by SavioJoseph on 8/23/2016.
  */
-var http=require('http');
-var server=http.createServer(function(req,res){
-res.writeHead(200,{'Content-Type':'text/html'});
-    res.end('<h1>Hello world!!</h1>')
+var express = require("express");
+var app     = express();
+var path    = require("path");
+
+app.use(express.static(__dirname + '/app'));
+app.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/index.html'));
+    //__dirname : It will resolve to your project folder.
 });
-var port=Number(process.env.PORT||3000);
-server.listen(port);
+
+app.listen(3000);
+
+console.log("Running at Port 3000");
