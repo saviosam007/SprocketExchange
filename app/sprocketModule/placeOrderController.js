@@ -16,32 +16,32 @@
 
             //function for polling
             var polling = function(price) {
-                var value = $http({
-                    method : 'GET',
-                    url : 'sprocketModule/mocks/currentPriceMock.json'//TODO the services should return a random value
-                });
+                var url=appUrl.baseUrl+'/sprocketValue';
+                $http.get(url).success(function(data) {
+                    console.log(data.currentValue);
+                    placeOrderCtrl.priceDetail = data.currentValue;
+                    console.log("price Detail",placeOrderCtrl.priceDetail);
 
-                value.success(function(data, status, headers, config) {
-                    console.log(data.result);
-                    placeOrderCtrl.priceDetail = data.result
                 });
 
                 $timeout(function() {
                     polling();
-                }, 10000);
+                }, 100000);
             };
             polling();
 
 
             placeOrderDal.getOrderDetails().then(function (data) {
-                placeOrderCtrl.sprockets = data.result.sprockets;
-                placeOrderCtrl.availableCash = data.result.availableCash;
+                console.log(data);
+                placeOrderCtrl.sprockets = data[0].sprockets;
+                placeOrderCtrl.availableCash = data[0].availableCash;
             });
 
             //function to calculate the total
             function calculate() {
-                //TODO the value 97 should be replaced with the value that will be fetched by polling service
-                placeOrderCtrl.total = placeOrderCtrl.amount * 97;
+                    $timeout(function(){
+                        placeOrderCtrl.total = placeOrderCtrl.amount * placeOrderCtrl.priceDetail;
+                    });
             }
 
             //function to submit order

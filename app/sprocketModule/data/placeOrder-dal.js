@@ -6,7 +6,8 @@ angular.module("sprocketApp.data")
         return {
             getOrderDetails: function () {
                 var deferred = $q.defer();
-                var url = "sprocketModule/mocks/sampleMockData.json";
+                //var url = "sprocketModule/mocks/sampleMockData.json";
+                var url=appUrl.baseUrl+'/sprocketdetail';
                 $http.get(url).success(function (data) {
                     deferred.resolve(data);
                 })
@@ -17,7 +18,7 @@ angular.module("sprocketApp.data")
             },
             postOrderDetails: function () {
                 var deferred = $q.defer();
-                var url = '';//add the post url;
+                var url = appUrl.baseUrl+'/sprocketHistory';//add the post url;
                 $http.post(url).success(function (data) {
                     deferred.resolve(data);
                 })
